@@ -33,6 +33,7 @@ The output file names are 'simRedNoiseTTE_duration'+str(T)+'_rate'+str(mean_rate
 ######
 ## PSD_IDL: 
 IDL scripts to simulate 1/f noises (following Timmer & Konig 1995), calculated power spectral densities (PSD), and success fractions (following Uttley et al. 2002 and Chatterjee et al. 2008). 
+
 Light curve file name is provided as command line arguments, e.g.: 
 idl -e ".run psd_suf.pro" -args LC.dat
 The file (e.g. LC.dat) has 3 columns: time, flux, flux error
@@ -41,7 +42,9 @@ The file (e.g. LC.dat) has 3 columns: time, flux, flux error
 ## HHT: 
 R scripts using the hht R package implimented by Daniel C. Bowman, see 
 http://cran.r-project.org/web/packages/hht/index.html
+
 The input light curve should contain two columns, time and flux (or rate etc). The script performs Ensemble Empirical Mode Decomposition (EEMD), calculates the Hilbert spectrogram, and the marginal Hilbert spectrum, and saves the above plots into pdf files. 
+
 An example to run the script:
 Rscript HHT_plotLog.R LC.dat
 ######
@@ -50,10 +53,15 @@ Rscript HHT_plotLog.R LC.dat
 process_s6_root.py:
 A python class implementation to read a VEGAS stage 6 root file, 
 and produces light curves in the choice of format.
-available formats: histogram, kernel density estimation, bayesian blocks
+
+Available formats: histogram, kernel density estimation, bayesian blocks
+
 Need scikit-learn, astroML packages. 
+
 After importing the function above, use the methods like the example here:
+
 process_s6_root.process_one_run(f, 57432, binwidth_min=1. ,kernel_bandwidth_min=1., compfile=fname, use_mjd=False, ea_method='x', plot_hist=True, doplot=True, bb=True, p0=0.01) 
+
 where f is the stage 6 root file name, 
 57432 is the run number, 
 binwidth_min and kernel_bandwidth_min are the bin width for histogram and bandwidth for kernel density estimation, respectively, 
