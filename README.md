@@ -17,6 +17,26 @@ or
 python massproduce_two_sim_poisson_seq
 ######
 ######
+simRedNoises
+1) To simulate a list of time tagged events (TTE) following a red nosie power spectrum, provide the TTE list file from real data so that the energies from the data can be used. 
+Edit the above file name (energy_file), the number of simulations (n_lc), the mean rate (mean_rate), and the duration (T) in the file "mass_rednoise_readE_2pp.py" and run it. 
+The method generate_pl_pp in sim_rednoise_pointprocess is then called. 
+The output file names are 'simRedNoiseTTE_duration'+str(T)+'_rate'+str(mean_rate)+'_withEreadFromM4Obs_trial'+str(i)+'.txt'
+
+2) To simulate a list of TTEs following a Poisson noise power spectrum, use "massproduce_two_sim_poisson_seq.py". 
+Edit these parameters in the file: 
+n_start 
+n_stop  
+total   
+total2  
+mean_rate 
+mean_rate2 
+Efake 
+Efake2 
+
+You can get the total number of events and the mean rate for lower and higher energies, the duration is then determined. 
+######
+######
 PSD_IDL: 
 IDL scripts to simulate 1/f noises (following Timmer & Konig 1995), calculated power spectral densities (PSD), and success fractions (following Uttley et al. 2002 and Chatterjee et al. 2008). 
 Light curve file name is provided as command line arguments, e.g.: 
