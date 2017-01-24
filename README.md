@@ -46,7 +46,7 @@ An example to run the script:
 Rscript HHT_plotLog.R LC.dat
 ######
 ######
-VERITAS_KDE: 
+## VERITAS_KDE: 
 process_s6_root.py:
 A python class implementation to read a VEGAS stage 6 root file, 
 and produces light curves in the choice of format.
