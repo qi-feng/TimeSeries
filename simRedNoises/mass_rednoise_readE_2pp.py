@@ -1,15 +1,12 @@
 #%matplotlib inline
 
 import numpy as np
-#from astroML.time_series import lomb_scargle
-#from astroML.time_series import multiterm_periodogram
-#from astroML.time_series import generate_power_law
-#from astroML.time_series import ACF_scargle , ACF_EK
 
 from sim_rednoise_pointprocess import generate_pl_pp
 #from sim_poisson_seq import poisson_seq
 import pandas as pd
 
+#The actual data file to read energy from
 energy_file='M4V20140429_OnEvents_T_E.txt'
 df = pd.read_csv(energy_file, header=None, delim_whitespace=True)
 df.columns = ['t','e']

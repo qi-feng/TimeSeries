@@ -1,0 +1,23 @@
+#!/bin/bash
+
+lcl="$PWD"
+
+for i in {11..99}
+do
+for timescale in 1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 20.0 30.0 40.0 50.0 60.0 70.0 80.0 90.0 100.0 110.0 120.0 130.0 140.0 150.0 160.0 170.0 180.0 190.0 200.0
+do
+
+####################################################################
+# Make up the job script file that will be submitted below
+####################################################################
+      sgeFile=$lcl'/mccf_testRedNoise_1024duration_0.15rate_timescale'$timescale'trial'$i'.pbs'
+      echo "#"PBS -l walltime=4:00:00          >$sgeFile
+      #echo "#"PBS -l mem=15gb                  >>$sgeFile
+      echo cd $lcl                             >>$sgeFile
+      echo timescale=$timescale          >>$sgeFile
+      echo './mccf_func_fixstep5 simRedNoiseTTE_duration1024_rate0.15_withE0.1andE1.0_trial'$i'.txt  0.0 0.5 0.5 2.0 0.02 '$timescale' 120. "MCCF_testRedNoise_1024duration_0.15rate_dtu'$timescale'_lag120_step0.1_trial'$i'.txt" > "V0429_testRedNoise_1024duration_0.15rate_dtu'$timescale'_MCCF_lag120_step0.1_trial'$i'.log"'   >>$sgeFile
+      chmod 700 $sgeFile
+      qsub -q standby -V -e 'sub_mccf_testRedNoise_1024duration_0.15rate_timescale'$timescale'_trial'$i'.err' -o 'sub_mccf_testRedNoise_1024duration_0.15rate_timescale'$timescale'_trial'$i'.log' $sgeFile
+      #source $sgeFile > 'sub_mccf_testRedNoise_1024duration_0.15rate_timescale'$timescale'.log' 2>&1 &
+done
+done
