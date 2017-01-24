@@ -3,38 +3,32 @@ Basic time series processing with Python under development.
 ######
 ## SimPointProcesses:
 Python scripts to simulate a sequence of arriving times of events. A fake energy can be assigned to each event. 
-The following arameters can be changed in the python files:
-total = 3000 # the total number of events to simulate
-mean_rate = 0.15 # the mean rate of events
-Efake = 0.1 # the fake energy
-To simulate a Poisson sequence:
-python test_sim_poisson_seq.py
-To simulate two Poisson sequences of different Efake values, set Efake2 in test_two_sim_poisson_seq.py and run:
-python test_two_sim_poisson_seq.py
-To produce many trials, set the parameters in file and run:
-python massproduce_sim_poisson_seq.py 
-or
-python massproduce_two_sim_poisson_seq
+#### To simulate a list of TTEs following a Poisson noise power spectrum, use "massproduce_two_sim_poisson_seq.py". 
+Edit these parameters in the file:
+```
+n_start
+n_stop
+total
+total2
+mean_rate
+mean_rate2
+Efake
+Efake2
+```
+You can get the total number of events and the mean rate for lower and higher energies, the duration is then determined.
 ######
 ######
 ## simRedNoises:
-#### 1) To simulate a list of time tagged events (TTE) following a red nosie power spectrum, provide the TTE list file from real data so that the energies from the data can be used. 
-Edit the above file name (energy_file), the number of simulations (n_lc), the mean rate (mean_rate), and the duration (T) in the file "mass_rednoise_readE_2pp.py" and run it. 
+####  To simulate a list of time tagged events (TTE) following a red nosie power spectrum, provide the TTE list file from real data so that the energies from the data can be used. 
+Edit these parameters in the file:
+```
+the above file name (energy_file), 
+the number of simulations (n_lc), 
+the mean rate (mean_rate), 
+and the duration (T) in the file "mass_rednoise_readE_2pp.py" and run it. 
+```
 The method generate_pl_pp in sim_rednoise_pointprocess is then called. 
 The output file names are 'simRedNoiseTTE_duration'+str(T)+'_rate'+str(mean_rate)+'_withEreadFromM4Obs_trial'+str(i)+'.txt'
-#### 2) To simulate a list of TTEs following a Poisson noise power spectrum, use "massproduce_two_sim_poisson_seq.py". 
-Edit these parameters in the file: 
-```
-n_start 
-n_stop  
-total   
-total2  
-mean_rate 
-mean_rate2 
-Efake 
-Efake2 
-```
-You can get the total number of events and the mean rate for lower and higher energies, the duration is then determined. 
 ######
 ######
 ## PSD_IDL: 
