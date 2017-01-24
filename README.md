@@ -1,7 +1,7 @@
 # TimeSeries
 Basic time series processing with Python under development. 
 ######
-SimPointProcesses:
+## SimPointProcesses:
 Python scripts to simulate a sequence of arriving times of events. A fake energy can be assigned to each event. 
 The following arameters can be changed in the python files:
 total = 3000 # the total number of events to simulate
@@ -17,14 +17,14 @@ or
 python massproduce_two_sim_poisson_seq
 ######
 ######
-simRedNoises
-1) To simulate a list of time tagged events (TTE) following a red nosie power spectrum, provide the TTE list file from real data so that the energies from the data can be used. 
+## simRedNoises:
+#### 1) To simulate a list of time tagged events (TTE) following a red nosie power spectrum, provide the TTE list file from real data so that the energies from the data can be used. 
 Edit the above file name (energy_file), the number of simulations (n_lc), the mean rate (mean_rate), and the duration (T) in the file "mass_rednoise_readE_2pp.py" and run it. 
 The method generate_pl_pp in sim_rednoise_pointprocess is then called. 
 The output file names are 'simRedNoiseTTE_duration'+str(T)+'_rate'+str(mean_rate)+'_withEreadFromM4Obs_trial'+str(i)+'.txt'
-
-2) To simulate a list of TTEs following a Poisson noise power spectrum, use "massproduce_two_sim_poisson_seq.py". 
+#### 2) To simulate a list of TTEs following a Poisson noise power spectrum, use "massproduce_two_sim_poisson_seq.py". 
 Edit these parameters in the file: 
+```
 n_start 
 n_stop  
 total   
@@ -33,18 +33,18 @@ mean_rate
 mean_rate2 
 Efake 
 Efake2 
-
+```
 You can get the total number of events and the mean rate for lower and higher energies, the duration is then determined. 
 ######
 ######
-PSD_IDL: 
+## PSD_IDL: 
 IDL scripts to simulate 1/f noises (following Timmer & Konig 1995), calculated power spectral densities (PSD), and success fractions (following Uttley et al. 2002 and Chatterjee et al. 2008). 
 Light curve file name is provided as command line arguments, e.g.: 
 idl -e ".run psd_suf.pro" -args LC.dat
 The file (e.g. LC.dat) has 3 columns: time, flux, flux error
 ######
 ######
-HHT: 
+## HHT: 
 R scripts using the hht R package implimented by Daniel C. Bowman, see 
 http://cran.r-project.org/web/packages/hht/index.html
 The input light curve should contain two columns, time and flux (or rate etc). The script performs Ensemble Empirical Mode Decomposition (EEMD), calculates the Hilbert spectrogram, and the marginal Hilbert spectrum, and saves the above plots into pdf files. 
