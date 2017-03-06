@@ -39,7 +39,7 @@ idl -e ".run psd_suf.pro" -args LC.dat
 The file (e.g. LC.dat) has 3 columns: time, flux, flux error
 ######
 ######
-## HHT: 
+## HHT (see also directory ./pedvar): 
 R scripts using the hht R package implimented by Daniel C. Bowman, see 
 http://cran.r-project.org/web/packages/hht/index.html
 
@@ -47,6 +47,14 @@ The input light curve should contain two columns, time and flux (or rate etc). T
 
 An example to run the script:
 Rscript HHT_plotLog.R LC.dat
+
+######
+######
+## pedvar: 
+Jupyter notebook of examples to use continuous wavelet transform (CWT) and Hilbert-Huang Transform (HHT) to get scalogram/spectrogram from a time series. 
+
+Simple examples of composite sinusoidal waves, a chirp signal, and LIGO gravitational signal from GW150914 are shown. The VERITAS pedestal variance curve for a few pixels in one or two runs are shown. 
+
 ######
 ######
 ## VERITAS_KDE: 
